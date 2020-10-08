@@ -65,7 +65,8 @@ public class TileSpawnPoint : MonoBehaviour
 		{
 			if(other.GetComponent<TileSpawnPoint>().spawned == false && spawned == false)
 			{
-				Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+				var instance = Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+				instance.transform.parent = dungeon.transform;
 				Destroy(gameObject);
 			}
 			spawned = true;
