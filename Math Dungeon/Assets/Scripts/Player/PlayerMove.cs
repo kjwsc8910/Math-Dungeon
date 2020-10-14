@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
 	private GameObject currentRoom;
 	private GameObject nextRoom;
 	private Collider2D[] colliders;
+	private PlayerController playerController;
 
 	private void Start()
 	{
@@ -162,5 +163,4 @@ public class PlayerMove : MonoBehaviour
 			}
 		}
 	}
-
 }

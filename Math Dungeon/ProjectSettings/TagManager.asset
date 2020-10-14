@@ -12,6 +12,7 @@ TagManager:
   - Dungeon
   - TextBox
   - CombatBox
+  - Event
   layers:
   - Default
   - TransparentFX

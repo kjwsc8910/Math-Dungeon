@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 
 	private PlayerMove playerMove;
 
-	[SerializeField]
-	private bool canMove = true;
+	public bool canMove = true;
+	private bool keyHeld = false;
 
 	private float xMove;
 	private float yMove;
@@ -35,24 +35,41 @@ public class PlayerController : MonoBehaviour
 
 			if (xMove > 0)
 			{
-				playerMove.MoveRight();
-				canMove = false;
+				if (keyHeld == false)
+				{
+					playerMove.MoveRight();
+					keyHeld = true;
+				}
 			}
 			else if (xMove < 0)
 			{
-				playerMove.MoveLeft();
-				canMove = false;
+				if (keyHeld == false)
+				{
+					playerMove.MoveLeft();
+					keyHeld = true;
+				}
 			}
 
 			if (yMove > 0)
 			{
-				playerMove.MoveUp();
-				canMove = false;
+				if (keyHeld == false)
+				{
+					playerMove.MoveUp();
+					keyHeld = true;
+				}
 			}
 			else if (yMove < 0)
 			{
-				playerMove.MoveDown();
-				canMove = false;
+				if (keyHeld == false)
+				{
+					playerMove.MoveDown();
+					keyHeld = true;
+				}
+			}
+
+			if (xMove == 0 && yMove == 0)
+			{
+				keyHeld = false;
 			}
 		}
 	}
