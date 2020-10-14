@@ -9,6 +9,14 @@ public class Trap : MonoBehaviour
 	public DialogueTrigger dialogue;
 	private DialogueMannager dialogueMannager;
 	private PlayerController playerController;
+	private TrabBoxMannager trapBoxMannager;
+
+	private int x;
+	private int y;
+	private int z;
+	private string q;
+
+	private int random;
 
 	private bool started = false;
 
@@ -16,6 +24,24 @@ public class Trap : MonoBehaviour
 	{
 		dialogueMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DialogueMannager>();
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+		trapBoxMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<TrabBoxMannager>();
+
+		random = Random.Range(1, 11);
+		x = random;
+		random = Random.Range(1, 11);
+		y = random;
+		random = Random.Range(1, 3);
+		if (random == 1)
+		{
+			q = "+";
+			z = x + y;
+		}
+		if (random == 2)
+		{
+			q = "*";
+			z = x * y;
+		}
+
 		Invoke("StartEvent", 0.1f);
 	}
 
@@ -25,11 +51,11 @@ public class Trap : MonoBehaviour
 		started = true;
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		if (started == true && dialogueMannager.dialogueOpen == false)
 		{
-			playerController.canMove = true;
+			trapBoxMannager.StartTrap(x, y, z, q);
 			started = false;
 		}
 	}

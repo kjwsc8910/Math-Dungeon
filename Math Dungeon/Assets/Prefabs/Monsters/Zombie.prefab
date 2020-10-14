@@ -48,6 +48,7 @@ MonoBehaviour:
     name: Zombie
     health: 10
     attack: 15
+    speed: 8
   dialogue: {fileID: 7712232384419066145}
 --- !u!114 &7712232384419066145
 MonoBehaviour:

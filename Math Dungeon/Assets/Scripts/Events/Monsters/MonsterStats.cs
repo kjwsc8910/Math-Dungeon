@@ -7,7 +7,8 @@ public class MonsterStats
 {
 
 	public string name;
-	public string health;
-	public string attack;
+	public float health;
+	public int attack;
+	public float speed;
 
 }

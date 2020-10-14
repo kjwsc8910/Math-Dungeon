@@ -16,7 +16,7 @@ public class Event : MonoBehaviour
 
 		eventCompleted = false;
 
-		rand = Random.Range(1, 10);
+		rand = Random.Range(1, 11);
 
 		if (rand <= 5)
 		{

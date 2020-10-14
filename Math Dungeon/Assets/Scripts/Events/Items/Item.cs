@@ -25,7 +25,7 @@ public class Item : MonoBehaviour
 		started = true;
 	}
 
-	private void FixedUpdate()
+	private void Update()
 	{
 		if (started == true && dialogueMannager.dialogueOpen == false)
 		{
