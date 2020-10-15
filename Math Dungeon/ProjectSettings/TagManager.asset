@@ -13,6 +13,7 @@ TagManager:
   - TextBox
   - CombatBox
   - Event
+  - PlayerUI
   layers:
   - Default
   - TransparentFX

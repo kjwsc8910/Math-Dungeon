@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7712232384419066175
+--- !u!1 &7305737988764895359
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,24 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7712232384419066146}
-  - component: {fileID: 7712232384419066144}
-  - component: {fileID: 7712232384419066145}
-  - component: {fileID: -6205201098690429580}
+  - component: {fileID: 4711205068994180703}
+  - component: {fileID: 7348405979003719677}
+  - component: {fileID: -3886974248690205019}
+  - component: {fileID: 5141304660987834023}
+  - component: {fileID: 5929624497625541820}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: MannaPotion
   m_TagString: Event
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7712232384419066146
+--- !u!4 &4711205068994180703
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712232384419066175}
+  m_GameObject: {fileID: 7305737988764895359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -33,61 +34,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7712232384419066144
+--- !u!114 &7348405979003719677
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712232384419066175}
+  m_GameObject: {fileID: 7305737988764895359}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7356f11df8ef0cd46b2818bf009b3f60, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a5ed6df9ae9e6d4c8a24f173d85e031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
-    name: Zombie
-    health: 10
-    attack: 15
-    speed: 8
-  dialogue: {fileID: 7712232384419066145}
-  dialogue2: {fileID: -6205201098690429580}
---- !u!114 &7712232384419066145
+  itemStats:
+    name: Manna Potion
+    attribute: Manna
+    strength: 15
+  dialogue: {fileID: -3886974248690205019}
+  dialogue2: {fileID: 5141304660987834023}
+  dialogue3: {fileID: 5929624497625541820}
+--- !u!114 &-3886974248690205019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712232384419066175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Zombie
-    needChoice: 0
-    choiceOneName: 
-    choiceTwoName: 
-    sentences:
-    - '*Arghh*'
-    - Brains!
---- !u!114 &-6205201098690429580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7712232384419066175}
+  m_GameObject: {fileID: 7305737988764895359}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Zombie
+    name: Manna Potion
+    needChoice: 1
+    choiceOneName: Take
+    choiceTwoName: Use
+    sentences:
+    - You find a strange bottle with the words Manna  Potion...
+--- !u!114 &5141304660987834023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305737988764895359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Manna Potion
     needChoice: 0
     choiceOneName: 
     choiceTwoName: 
     sentences:
-    - '*Arghh*'
+    - You place the Manna potion into your bag!
+--- !u!114 &5929624497625541820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7305737988764895359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Manna Potion
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
+    sentences:
+    - You throw the Manna  potion down your throat...
+    - 'You feel a strange kind of power surge through you!
+
+
+      +15 Manna'

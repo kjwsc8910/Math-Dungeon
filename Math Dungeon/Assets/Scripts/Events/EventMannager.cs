@@ -30,7 +30,7 @@ public class EventMannager : MonoBehaviour
 
 	public void MonsterEvent()
 	{
-		random = Random.Range(0, monsters.Length - 1);
+		random = Random.Range(0, monsters.Length);
 		selection = monsters[random];
 
 		Instantiate(selection);
@@ -38,7 +38,7 @@ public class EventMannager : MonoBehaviour
 
 	public void TrapEvent()
 	{
-		random = Random.Range(0, traps.Length - 1);
+		random = Random.Range(0, traps.Length);
 		selection = traps[random];
 
 		Instantiate(selection);
@@ -46,7 +46,7 @@ public class EventMannager : MonoBehaviour
 
 	public void ItemEvent()
 	{
-		random = Random.Range(0, items.Length - 1);
+		random = Random.Range(0, items.Length);
 		selection = items[random];
 
 		Instantiate(selection);

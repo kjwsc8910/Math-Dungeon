@@ -8,14 +8,12 @@ public class Trap : MonoBehaviour
 	public TrapStats stats;
 	public DialogueTrigger dialogue;
 	private DialogueMannager dialogueMannager;
-	private PlayerController playerController;
-	private TrabBoxMannager trapBoxMannager;
+	private TrapBoxMannager trapBoxMannager;
+	private QuestionMannager questionMannager;
+	private DifficultyMannager difficulty;
 
-	private int x;
-	private int y;
-	private int z;
-	private string q;
-
+	private string question;
+	private float ans;
 	private int random;
 
 	private bool started = false;
@@ -23,24 +21,9 @@ public class Trap : MonoBehaviour
 	private void Start()
 	{
 		dialogueMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DialogueMannager>();
-		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-		trapBoxMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<TrabBoxMannager>();
-
-		random = Random.Range(1, 11);
-		x = random;
-		random = Random.Range(1, 11);
-		y = random;
-		random = Random.Range(1, 3);
-		if (random == 1)
-		{
-			q = "+";
-			z = x + y;
-		}
-		if (random == 2)
-		{
-			q = "*";
-			z = x * y;
-		}
+		trapBoxMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<TrapBoxMannager>();
+		questionMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<QuestionMannager>();
+		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
 
 		Invoke("StartEvent", 0.1f);
 	}
@@ -55,8 +38,12 @@ public class Trap : MonoBehaviour
 	{
 		if (started == true && dialogueMannager.dialogueOpen == false)
 		{
-			trapBoxMannager.StartTrap(x, y, z, q);
 			started = false;
+			random = Random.Range(1, 3);
+			if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
+			if (random == 2) questionMannager.Subtraction(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
+			trapBoxMannager.StartTrap(question, ans, stats.attribute, stats.strength);
+			Destroy(gameObject);
 		}
 	}
 

@@ -9,10 +9,15 @@ public class DialogueMannager : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public GameObject cont;
+    public GameObject choiceOne;
+    public GameObject choiceTwo;
 
     public Animator animator;
 
     public bool dialogueOpen;
+    public int choice;
+    private bool needChoice;
 
     private Queue<string> sentences;
 
@@ -20,6 +25,7 @@ public class DialogueMannager : MonoBehaviour
     {
         sentences = new Queue<string>();
         dialogueOpen = false;
+        choice = 0;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -29,6 +35,14 @@ public class DialogueMannager : MonoBehaviour
         nameText.text = dialogue.name;
 
         dialogueOpen = true;
+
+        choice = 0;
+
+        needChoice = dialogue.needChoice;
+
+        choiceOne.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.choiceOneName;
+
+        choiceTwo.GetComponentInChildren<TextMeshProUGUI>().text = dialogue.choiceTwoName;
 
         sentences.Clear();
 
@@ -49,6 +63,13 @@ public class DialogueMannager : MonoBehaviour
             return;
 		}
 
+        if (sentences.Count == 1 && needChoice == true)
+		{
+            cont.SetActive(false);
+            choiceOne.SetActive(true);
+            choiceTwo.SetActive(true);
+		}
+
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
@@ -66,8 +87,22 @@ public class DialogueMannager : MonoBehaviour
 
     void EndDialogue()
 	{
+		cont.SetActive(true);
+		choiceOne.SetActive(false);
+        choiceTwo.SetActive(false);
+
         animator.SetBool("IsOpen", false);
 
         dialogueOpen = false;
     }
+
+    public void selectOne()
+	{
+        choice = 1;
+	}
+
+    public void selectTwo()
+	{
+        choice = 2;
+	}
 }
