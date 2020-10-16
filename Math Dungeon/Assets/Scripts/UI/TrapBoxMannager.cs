@@ -47,8 +47,8 @@ public class TrapBoxMannager : MonoBehaviour
 	private void Update()
 	{
 		if (time > difficulty.qteTimer) time = difficulty.qteTimer;
-		timerSlider.highValue = difficulty.qteTimer;
-		timerSlider.value = difficulty.qteTime - time;
+		timerSlider.maxValue = difficulty.qteTimer;
+		timerSlider.value = difficulty.qteTimer - time;
 
 		if (isTrapBoxOpen == true) time += Time.deltaTime;
 		if (time >= difficulty.qteTimer && timeOut == false)
