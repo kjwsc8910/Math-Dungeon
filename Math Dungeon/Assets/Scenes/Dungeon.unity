@@ -3162,6 +3162,7 @@ MonoBehaviour:
   optionTwo: {fileID: 519174352}
   optionThree: {fileID: 919994377}
   optionFour: {fileID: 1633590513}
+  timerSlider: {fileID: 1451753802}
   isTrapBoxOpen: 0
   time: 0
 --- !u!114 &1309451778
@@ -3192,7 +3193,7 @@ MonoBehaviour:
   questionMin: 5
   questionMax: 20
   multiplyer: 1
-  qteTimer: 10
+  qteTimer: 5
 --- !u!114 &1309451780
 MonoBehaviour:
   m_ObjectHideFlags: 0
