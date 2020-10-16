@@ -18,11 +18,11 @@ public class Event : MonoBehaviour
 
 		rand = Random.Range(1, 11);
 
-		if (rand <= 0)
+		if (rand <= 4)
 		{
             eventType = "Monster";
 		}
-		else if (rand <= 10)
+		else if (rand <= 7)
 		{
 			eventType = "Trap";
 		}
