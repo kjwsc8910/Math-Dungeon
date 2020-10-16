@@ -58,7 +58,7 @@ public class CombatMannager : MonoBehaviour
 	public void Question()
 	{
 		random = Random.Range(1, 3);
-		if (random == 1) questionMannager(difficulty.length, difficulty.min, difficulty.max, question, ans);
+		if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax,out question,out ans);
 
 	}
 
