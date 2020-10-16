@@ -21,12 +21,6 @@ public class PlayerController : MonoBehaviour
 	private void Update()
 	{
 
-		//Temporary Enable Move
-		if (Input.GetKeyDown("space") == true)
-		{
-			canMove = true;
-		}
-
 		//Get Movement Commands
 		if (canMove == true)
 		{

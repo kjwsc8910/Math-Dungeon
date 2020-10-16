@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
 	private DifficultyMannager difficulty;
 
 	private bool started = false;
+	private bool dead = false;
 
 	private void Start()
 	{
@@ -40,7 +41,13 @@ public class Monster : MonoBehaviour
 			Invoke("StartCombat", 1f);
 			started = false;
 		}
-		if (stats.health <= 0) MonsterKilled();
+		if (stats.health <= 0 && dead == false) MonsterKilled();
+
+		if (dead == true && dialogueMannager.dialogueOpen == false)
+		{
+			playerController.canMove = true;
+			Destroy(gameObject);
+		}
 	}
 
 	private void StartCombat()
@@ -58,6 +65,6 @@ public class Monster : MonoBehaviour
 		playerStats.score += 10f * difficulty.multiplyer;
 		combatMannager.EndCombat();
 		dialogue2.TriggerDialogue();
-		Destroy(gameObject);
+		dead = true;
 	}
 }

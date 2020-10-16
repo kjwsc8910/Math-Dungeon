@@ -10,6 +10,7 @@ public class TrapBoxMannager : MonoBehaviour
 	public Animator animator;
 	private PlayerController playerController;
 	private PlayerStats playerStats;
+	private DifficultyMannager difficulty;
 
 	private string attribute;
 	private int strength;
@@ -20,16 +21,41 @@ public class TrapBoxMannager : MonoBehaviour
 	public TextMeshProUGUI optionThree;
 	public TextMeshProUGUI optionFour;
 
+	public Slider timerSlider;
+
 	private int correctAns;
 	private int random;
 
 	public bool isTrapBoxOpen;
 
+	[SerializeField]
+	private float time;
+
+	private bool timeOut;
+
 	private void Start()
 	{
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
 		isTrapBoxOpen = false;
+		time = 0f;
+		timeOut = false;
+
+	}
+
+	private void Update()
+	{
+		if (time > difficulty.qteTimer) time = difficulty.qteTimer;
+		timerSlider.highValue = difficulty.qteTimer;
+		timerSlider.value = difficulty.qteTime - time;
+
+		if (isTrapBoxOpen == true) time += Time.deltaTime;
+		if (time >= difficulty.qteTimer && timeOut == false)
+		{
+			timeOut = true;
+			Incorrect();
+		}
 	}
 
 	public void StartTrap(string _question, float _ans, string _attribute, int _strength)
@@ -37,6 +63,8 @@ public class TrapBoxMannager : MonoBehaviour
 
 		attribute = _attribute;
 		strength = _strength;
+		time = 0f;
+		timeOut = false;
 
 		question.text = _question;
 

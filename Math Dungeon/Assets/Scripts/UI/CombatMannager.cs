@@ -51,7 +51,6 @@ public class CombatMannager : MonoBehaviour
 		animator.SetBool("IsOpen", false);
 
 		combatOpen = false;
-		playerController.canMove = true;
 	}
 
 }

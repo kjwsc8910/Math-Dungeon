@@ -9,5 +9,6 @@ public class DifficultyMannager : MonoBehaviour
 	public int questionMin;
 	public int questionMax;
 	public float multiplyer;
+	public float qteTimer;
 
 }

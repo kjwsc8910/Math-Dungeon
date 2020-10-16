@@ -38,10 +38,12 @@ public class Item : MonoBehaviour
 		{
 			if (itemStats.name == "Health Potion" && restarted == false) healthPotion();
 			if (itemStats.name == "Manna Potion" && restarted == false) mannaPotion();
-
-
 			started = false;
-			if (restarted == true) playerController.canMove = true; Destroy(gameObject);
+		}
+		if (restarted == true && dialogueMannager.dialogueOpen == false)
+		{
+			playerController.canMove = true;
+			Destroy(gameObject);
 		}
 	}
 
