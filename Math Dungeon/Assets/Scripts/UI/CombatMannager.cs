@@ -9,13 +9,22 @@ public class CombatMannager : MonoBehaviour
 	public Animator animator;
 	private PlayerStats playerStats;
 	private PlayerController playerController;
+	private QuestionMannager questionMannager;
+	private DifficultyMannager difficulty;
+
+
 
 	public bool combatOpen;
+	private int random;
+	private string question;
+	private float ans;
 
 	private void Start()
 	{
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+		questionMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<QuestionMannager>();
+		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
 
 		combatOpen = false;
 	}
@@ -44,6 +53,13 @@ public class CombatMannager : MonoBehaviour
 		if (playerStats.mannaPots <= 0) return;
 		playerStats.mannaPots -= 1;
 		playerStats.manna += 15;
+	}
+
+	public void Question()
+	{
+		random = Random.Range(1, 3);
+		if (random == 1) questionMannager(difficulty.length, difficulty.min, difficulty.max, question, ans);
+
 	}
 
 	public void EndCombat()
