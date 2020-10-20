@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1145026392577365259
+--- !u!1 &8960199586302285127
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1145026392577365258}
-  - component: {fileID: 1145026392577365257}
+  - component: {fileID: 8960199586302285126}
+  - component: {fileID: 8960199586302285125}
+  - component: {fileID: 8339247467704634712}
+  - component: {fileID: 8339247467704634713}
+  - component: {fileID: 8339247467704635044}
+  - component: {fileID: 8339247467704635045}
+  - component: {fileID: 8339247467704635046}
+  - component: {fileID: 8339247467704635047}
+  - component: {fileID: 8339247467704635040}
   m_Layer: 0
-  m_Name: GameMannager
+  m_Name: GameMannager 1
   m_TagString: GameMannager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1145026392577365258
+--- !u!4 &8960199586302285126
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145026392577365259}
+  m_GameObject: {fileID: 8960199586302285127}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +38,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1145026392577365257
+--- !u!114 &8960199586302285125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145026392577365259}
+  m_GameObject: {fileID: 8960199586302285127}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a490f979c8c1cb24faae89f48ff69f6e, type: 3}
@@ -68,3 +75,124 @@ MonoBehaviour:
   rooms: []
   waitTime: 3
   boss: {fileID: 5967831179394903377, guid: 2c3b2539e1571434698a2d25e0baa114, type: 3}
+--- !u!114 &8339247467704634712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254332e41a41cfc47b0352f8f99fdf58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  cont: {fileID: 0}
+  choiceOne: {fileID: 0}
+  choiceTwo: {fileID: 0}
+  animator: {fileID: 0}
+  dialogueOpen: 0
+  choice: 0
+--- !u!114 &8339247467704634713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a86de267195ff24082d4edff2581dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 7712232384419066175, guid: 0c8a57dc6133b264ab514280c423d120, type: 3}
+  traps:
+  - {fileID: 7851980479774802511, guid: 0a5154fc9520bac479c404af5e44cd70, type: 3}
+  items:
+  - {fileID: 7305737988764895359, guid: fdf8d323f3b437346afb9561265082f4, type: 3}
+  - {fileID: 7305737988764895359, guid: a213378f292da83439fdb2a62ebef954, type: 3}
+--- !u!114 &8339247467704635044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d5c714aa6b1504199fc760d8ca51af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  combatOpen: 0
+--- !u!114 &8339247467704635045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fafbf9860a68504aa5573d689ab96b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  question: {fileID: 0}
+  optionOne: {fileID: 0}
+  optionTwo: {fileID: 0}
+  optionThree: {fileID: 0}
+  optionFour: {fileID: 0}
+  timerSlider: {fileID: 0}
+  isTrapBoxOpen: 0
+  time: 0
+--- !u!114 &8339247467704635046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5aaa080aca5a741934ab57af816aad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8339247467704635047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23400e7e6f7da854c9d67f14cdf4792e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionLength: 2
+  questionMin: 5
+  questionMax: 20
+  multiplyer: 1
+  qteTimer: 5
+--- !u!114 &8339247467704635040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960199586302285127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51deac5ad0a54004382a252ce51f25f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  healthName: {fileID: 0}
+  healthPots: {fileID: 0}
+  mannaSlider: {fileID: 0}
+  mannaName: {fileID: 0}
+  mannaPots: {fileID: 0}

@@ -20,7 +20,7 @@ public class TileSpawnPoint : MonoBehaviour
 	{
 		templates = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<RoomTemplates>();
 		dungeon = GameObject.FindGameObjectWithTag("Dungeon");
-		Invoke("Spawn", 0.1f);
+		Invoke("Spawn", 0.2f);
 	}
 
 	void Spawn()
