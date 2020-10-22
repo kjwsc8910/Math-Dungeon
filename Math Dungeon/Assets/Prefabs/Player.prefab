@@ -201,10 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92472e88767a5a419d91724195c592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  attack: 0
-  speed: 0
-  manna: 0
+  health: 100
+  attack: 10
+  speed: 10
+  manna: 75
   healthPots: 0
   mannaPots: 0
   score: 0

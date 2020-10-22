@@ -10,5 +10,6 @@ public class MonsterStats
 	public float health;
 	public int attack;
 	public float speed;
+	public Sprite sprite;
 
 }

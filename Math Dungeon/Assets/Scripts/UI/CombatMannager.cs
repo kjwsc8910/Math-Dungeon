@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CombatMannager : MonoBehaviour
 {
@@ -12,7 +13,13 @@ public class CombatMannager : MonoBehaviour
 	private QuestionMannager questionMannager;
 	private DifficultyMannager difficulty;
 
+	public GameObject playerTurnUI;
+	public GameObject questionUI;
+	public TextMeshProUGUI questionText;
+	public InputField questionInput;
 
+	private Monster monster;
+	private int damage;
 
 	public bool combatOpen;
 	private int random;
@@ -29,8 +36,13 @@ public class CombatMannager : MonoBehaviour
 		combatOpen = false;
 	}
 
-	public void StartCombat()
+	public void StartCombat(Monster _monster)
 	{
+		monster = _monster;
+
+		questionUI.gameObject.SetActive(false);
+		playerTurnUI.gameObject.SetActive(true);
+
 		animator.SetBool("IsOpen", true);
 
 		combatOpen = true;
@@ -38,7 +50,39 @@ public class CombatMannager : MonoBehaviour
 
 	public void Attack()
 	{
-		GameObject.FindGameObjectWithTag("Event").GetComponent<Monster>().Attack(playerStats.attack);
+		random = Random.Range(1, 3);
+		if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
+		if (random == 2) questionMannager.Subtraction(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
+
+		damage = playerStats.attack;
+
+		questionText.text = question;
+		questionInput.text = "";
+
+		playerTurnUI.gameObject.SetActive(false);
+		questionUI.gameObject.SetActive(true);
+	}
+
+	public void AttackCheck()
+	{
+		if (questionInput.text == ans.ToString())
+		{
+			monster.stats.health -= damage;
+
+			if (monster.stats.health > 0)
+			{
+				questionUI.gameObject.SetActive(false);
+				playerTurnUI.gameObject.SetActive(true);
+			}
+			else
+			{
+				EndCombat();
+			}
+		}
+		else
+		{
+			playerStats.health -= monster.stats.attack;
+		}
 	}
 
 	public void HealthPotion()
@@ -53,13 +97,6 @@ public class CombatMannager : MonoBehaviour
 		if (playerStats.mannaPots <= 0) return;
 		playerStats.mannaPots -= 1;
 		playerStats.manna += 15;
-	}
-
-	public void Question()
-	{
-		random = Random.Range(1, 3);
-		if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax,out question,out ans);
-
 	}
 
 	public void EndCombat()

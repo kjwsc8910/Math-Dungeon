@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour
 {
@@ -11,8 +12,14 @@ public class Monster : MonoBehaviour
 	private DialogueMannager dialogueMannager;
 	private PlayerController playerController;
 	private CombatMannager combatMannager;
-	private PlayerStats playerStats;
+	public PlayerStats playerStats;
 	private DifficultyMannager difficulty;
+	public Image subject;
+
+	private Subject subjectScript;
+
+	public Monster monster;
+	private Animator subjectAnimator;
 
 	private bool started = false;
 	private bool dead = false;
@@ -24,6 +31,17 @@ public class Monster : MonoBehaviour
 		combatMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<CombatMannager>();
 		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		subject = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Image>();
+		subjectAnimator = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Animator>();
+		subjectScript = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Subject>();
+
+		monster = this;
+
+		subject.sprite = stats.sprite;
+
+		subjectScript.Activate(monster);
+
+		subjectAnimator.SetBool("IsOpen", true);
 
 		Invoke("StartEvent", 0.1f);
 	}
@@ -52,19 +70,16 @@ public class Monster : MonoBehaviour
 
 	private void StartCombat()
 	{
-		combatMannager.StartCombat();
+		combatMannager.StartCombat(monster);
 	}
 
-	public void Attack(int _attack)
-	{
-		stats.health -= _attack;
-	}
 
 	public void MonsterKilled()
 	{
 		playerStats.score += 10f * difficulty.multiplyer;
-		combatMannager.EndCombat();
 		dialogue2.TriggerDialogue();
+		subjectAnimator.SetBool("IsOpen", false);
+		subjectScript.Deactivate();
 		dead = true;
 	}
 }

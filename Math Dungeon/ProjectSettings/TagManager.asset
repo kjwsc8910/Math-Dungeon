@@ -15,6 +15,7 @@ TagManager:
   - Event
   - PlayerUI
   - EndRoom
+  - SubjectUI
   layers:
   - Default
   - TransparentFX

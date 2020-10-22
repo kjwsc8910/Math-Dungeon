@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8339247467704635047}
   - component: {fileID: 8339247467704635040}
   m_Layer: 0
-  m_Name: GameMannager 1
+  m_Name: GameMannager
   m_TagString: GameMannager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,6 +127,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  playerTurnUI: {fileID: 0}
+  questionUI: {fileID: 0}
+  questionText: {fileID: 0}
+  questionInput: {fileID: 0}
   combatOpen: 0
 --- !u!114 &8339247467704635045
 MonoBehaviour:
