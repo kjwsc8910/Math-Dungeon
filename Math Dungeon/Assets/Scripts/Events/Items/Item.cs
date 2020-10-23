@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
 	private DialogueMannager dialogueMannager;
 	private PlayerController playerController;
 	private PlayerStats playerStats;
+	private Animator dim;
 
 	private bool started = false;
 	private bool restarted = false;
@@ -21,7 +22,9 @@ public class Item : MonoBehaviour
 		dialogueMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DialogueMannager>();
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+		dim = GameObject.FindGameObjectWithTag("DimUI").GetComponent<Animator>();
 
+		dim.SetBool("Dim", true);
 		Invoke("StartEvent", 0.1f);
 	}
 
@@ -42,6 +45,7 @@ public class Item : MonoBehaviour
 		}
 		if (restarted == true && dialogueMannager.dialogueOpen == false)
 		{
+			dim.SetBool("Dim", false);
 			playerController.canMove = true;
 			Destroy(gameObject);
 		}

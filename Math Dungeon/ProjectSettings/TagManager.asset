@@ -16,6 +16,7 @@ TagManager:
   - PlayerUI
   - EndRoom
   - SubjectUI
+  - DimUI
   layers:
   - Default
   - TransparentFX

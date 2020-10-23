@@ -16,10 +16,11 @@ public class Monster : MonoBehaviour
 	private DifficultyMannager difficulty;
 	public Image subject;
 
-	private Subject subjectScript;
+	private SubjectMannager subjectScript;
 
 	public Monster monster;
 	private Animator subjectAnimator;
+	private Animator dim;
 
 	private bool started = false;
 	private bool dead = false;
@@ -33,15 +34,17 @@ public class Monster : MonoBehaviour
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		subject = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Image>();
 		subjectAnimator = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Animator>();
-		subjectScript = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Subject>();
+		subjectScript = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<SubjectMannager>();
+		dim = GameObject.FindGameObjectWithTag("DimUI").GetComponent<Animator>();
 
 		monster = this;
 
 		subject.sprite = stats.sprite;
 
-		subjectScript.Activate(monster);
+	
 
 		subjectAnimator.SetBool("IsOpen", true);
+		dim.SetBool("Dim", true);
 
 		Invoke("StartEvent", 0.1f);
 	}
@@ -49,7 +52,8 @@ public class Monster : MonoBehaviour
 	private void StartEvent()
 	{
 		dialogue.TriggerDialogue();
-		started = true;
+		started = true;	
+		subjectScript.Activate(monster);
 	}
 
 	private void Update()
@@ -63,6 +67,7 @@ public class Monster : MonoBehaviour
 
 		if (dead == true && dialogueMannager.dialogueOpen == false)
 		{
+			dim.SetBool("Dim", false);
 			playerController.canMove = true;
 			Destroy(gameObject);
 		}

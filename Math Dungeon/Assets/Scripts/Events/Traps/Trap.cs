@@ -11,6 +11,7 @@ public class Trap : MonoBehaviour
 	private TrapBoxMannager trapBoxMannager;
 	private QuestionMannager questionMannager;
 	private DifficultyMannager difficulty;
+	private Animator dim;
 
 	private string question;
 	private float ans;
@@ -24,7 +25,9 @@ public class Trap : MonoBehaviour
 		trapBoxMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<TrapBoxMannager>();
 		questionMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<QuestionMannager>();
 		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
+		dim = GameObject.FindGameObjectWithTag("DimUI").GetComponent<Animator>();
 
+		dim.SetBool("Dim", true);
 		Invoke("StartEvent", 0.1f);
 	}
 
@@ -43,6 +46,7 @@ public class Trap : MonoBehaviour
 			if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
 			if (random == 2) questionMannager.Subtraction(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
 			trapBoxMannager.StartTrap(question, ans, stats.attribute, stats.strength);
+			dim.SetBool("Dim", false);
 			Destroy(gameObject);
 		}
 	}

@@ -15,13 +15,7 @@ public class PlayerStats : MonoBehaviour
 
 	private void Start()
 	{
-		health = 100f;
-		attack = 15;
-		speed = 10;
-		manna = 75f;
-		healthPots = 0;
-		mannaPots = 0;
-		score = 0f;
+
 	}
 
 	private void Update()

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Subject : MonoBehaviour
+public class SubjectMannager : MonoBehaviour
 {
 
-    private Slider health;
-	private Monster monster;
+    public Slider health;
+	public Monster monster;
     private bool active;
 
 	private void Start()
@@ -27,7 +27,6 @@ public class Subject : MonoBehaviour
 		active = false;
 	}
 
-	// Update is called once per frame
 	void Update()
     {
 		if (active == true)
