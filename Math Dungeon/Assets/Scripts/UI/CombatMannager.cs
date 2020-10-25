@@ -24,6 +24,7 @@ public class CombatMannager : MonoBehaviour
 	public bool combatOpen;
 	private int random;
 	private string question;
+	[SerializeField]
 	private float ans;
 
 	private void Start()

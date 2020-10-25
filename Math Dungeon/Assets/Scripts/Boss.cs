@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
 
     public GameObject dungeon;
     private RoomTemplates roomTemplates;
+    private DifficultyMannager difficulty;
 
     private bool started;
     private bool completed;
@@ -16,6 +17,7 @@ public class Boss : MonoBehaviour
 	private void Start()
 	{ 
         roomTemplates = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<RoomTemplates>();
+        difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
 
         started = false;
         completed = false;
@@ -31,6 +33,9 @@ public class Boss : MonoBehaviour
         if(collider.tag == "Player" && completed == false)
 		{
             FindObjectOfType<PlayerStats>().inBoss = true;
+            difficulty.questionMax *= 2;
+            difficulty.questionMin *= 2;
+            difficulty.questionLength += 1;
             FindObjectOfType<EventMannager>().BossEvent();
             started = true;
 		}
@@ -39,6 +44,7 @@ public class Boss : MonoBehaviour
     public void ClearDungeon()
 	{
         completed = true;
+        difficulty.questionLength -= 1;
         Destroy(GameObject.FindGameObjectWithTag("Dungeon"));
         Invoke("NewDungeon", 0.1f);
 	}
