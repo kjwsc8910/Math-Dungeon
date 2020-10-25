@@ -66,6 +66,7 @@ public class Monster : MonoBehaviour
 		{
 			dim.SetBool("Dim", false);
 			playerController.canMove = true;
+			playerStats.inBoss = false;
 			Destroy(gameObject);
 		}
 	}

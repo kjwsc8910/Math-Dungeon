@@ -8,6 +8,7 @@ public class EventMannager : MonoBehaviour
 	public GameObject[] monsters;
 	public GameObject[] traps;
 	public GameObject[] items;
+	public GameObject[] bossArray;
 
 	private int random;
 	private GameObject selection;
@@ -48,6 +49,15 @@ public class EventMannager : MonoBehaviour
 	{
 		random = Random.Range(0, items.Length);
 		selection = items[random];
+
+		Instantiate(selection);
+
+	}
+
+	public void BossEvent()
+	{
+		random = Random.Range(0, bossArray.Length);
+		selection = bossArray[random];
 
 		Instantiate(selection);
 	}

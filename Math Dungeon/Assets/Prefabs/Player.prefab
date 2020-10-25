@@ -208,6 +208,8 @@ MonoBehaviour:
   manna: 75
   mannaPots: 0
   attack: 10
-  critRate: 50
-  critDamage: 100
-  score: 0
+  critRate: 10
+  critDamage: 50
+  level: 0
+  exp: 0
+  gold: 0

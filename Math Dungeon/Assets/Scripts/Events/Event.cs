@@ -41,5 +41,7 @@ public class Event : MonoBehaviour
 			FindObjectOfType<EventMannager>().Event(eventType);
 			eventCompleted = true;
 		}
+
+		if (collision.gameObject.tag == "EndRoom") Destroy(this);
 	}
 } 

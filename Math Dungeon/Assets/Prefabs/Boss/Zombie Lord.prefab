@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5926447008972091688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5926447008972091701}
+  - component: {fileID: 5926447008972091703}
+  - component: {fileID: 5926447008972091702}
+  - component: {fileID: 1214582269428874595}
+  m_Layer: 0
+  m_Name: Zombie Lord
+  m_TagString: Event
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5926447008972091701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926447008972091688}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5926447008972091703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926447008972091688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7356f11df8ef0cd46b2818bf009b3f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    name: Zombie Lord
+    sprite: {fileID: 21300000, guid: ff081673aed51e74ebd0602a52fd849d, type: 3}
+    maxHealth: 60
+    health: 60
+    attack: 20
+    critRate: 20
+    critDamage: 30
+    expValue: 350
+    goldValue: 300
+  dialogue: {fileID: 5926447008972091702}
+  dialogue2: {fileID: 1214582269428874595}
+  playerStats: {fileID: 0}
+  subject: {fileID: 0}
+  monster: {fileID: 0}
+--- !u!114 &5926447008972091702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926447008972091688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Zombie Lord
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
+    sentences:
+    - '*Arghh*'
+    - You Dare Enter The Realm Of The Zombie Lord!
+--- !u!114 &1214582269428874595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5926447008972091688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Zombie Lord
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
+    sentences:
+    - How is this possible?!?!

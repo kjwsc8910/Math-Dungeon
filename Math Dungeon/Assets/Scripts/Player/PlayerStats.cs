@@ -21,9 +21,11 @@ public class PlayerStats : MonoBehaviour
 
 	public float gold;
 
+	public bool inBoss;
+
 	private void Start()
 	{
-
+		inBoss = false;
 	}
 
 	private void Update()
