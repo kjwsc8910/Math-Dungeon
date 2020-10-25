@@ -12,18 +12,21 @@ public class SubjectMannager : MonoBehaviour
 
 	private void Start()
 	{
+		health.gameObject.SetActive(false);
 		active = false;
 	}
 
 	public void Activate(Monster _monster)
 	{
 		monster = _monster;
+		health.gameObject.SetActive(true);
 		active = true;
 		health.maxValue = monster.stats.health;
 	}
 
 	public void Deactivate()
 	{
+		health.gameObject.SetActive(false);
 		active = false;
 	}
 

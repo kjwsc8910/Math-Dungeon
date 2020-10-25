@@ -48,6 +48,7 @@ MonoBehaviour:
     name: Pitfall
     attribute: Health
     strength: 10
+    sprite: {fileID: 21300000, guid: 7851a7e6912ac77479f8535f1d0911fb, type: 3}
   dialogue: {fileID: -6844210083472201635}
 --- !u!114 &-6844210083472201635
 MonoBehaviour:
@@ -63,6 +64,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Pitfall
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
     sentences:
     - You barge into the room, combat ready...
     - However your intense consentration falied to notice the very large pitfall

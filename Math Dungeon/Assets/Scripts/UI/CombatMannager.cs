@@ -19,7 +19,7 @@ public class CombatMannager : MonoBehaviour
 	public InputField questionInput;
 
 	private Monster monster;
-	private int damage;
+	private float damage;
 
 	public bool combatOpen;
 	private int random;
@@ -54,8 +54,6 @@ public class CombatMannager : MonoBehaviour
 		if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
 		if (random == 2) questionMannager.Subtraction(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
 
-		damage = playerStats.attack;
-
 		questionText.text = question;
 		questionInput.text = "";
 
@@ -66,7 +64,14 @@ public class CombatMannager : MonoBehaviour
 	public void AttackCheck()
 	{
 		if (questionInput.text == ans.ToString())
-		{
+		{		
+			damage = playerStats.attack;
+
+			random = Random.Range(0, 101);
+			if (random <= playerStats.critRate) damage *=  1 + playerStats.critDamage / 100;
+
+			Debug.Log(damage);
+
 			monster.stats.health -= damage;
 
 			if (monster.stats.health > 0)

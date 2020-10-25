@@ -201,10 +201,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92472e88767a5a419d91724195c592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 100
-  attack: 10
-  speed: 10
-  manna: 75
   healthPots: 0
+  maxManna: 75
+  manna: 75
   mannaPots: 0
+  attack: 10
+  critRate: 50
+  critDamage: 100
   score: 0

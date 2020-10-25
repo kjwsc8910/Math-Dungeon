@@ -50,6 +50,7 @@ MonoBehaviour:
     name: Manna Potion
     attribute: Manna
     strength: 15
+    sprite: {fileID: 21300000, guid: f549755550ca342488f28b475a04a334, type: 3}
   dialogue: {fileID: -3886974248690205019}
   dialogue2: {fileID: 5141304660987834023}
   dialogue3: {fileID: 5929624497625541820}

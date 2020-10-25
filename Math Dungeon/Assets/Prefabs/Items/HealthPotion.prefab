@@ -50,6 +50,7 @@ MonoBehaviour:
     name: Health Potion
     attribute: Health
     strength: 20
+    sprite: {fileID: 21300000, guid: 814349bec457edd48a4b98fdf50f822a, type: 3}
   dialogue: {fileID: -3886974248690205019}
   dialogue2: {fileID: 5141304660987834023}
   dialogue3: {fileID: 5929624497625541820}

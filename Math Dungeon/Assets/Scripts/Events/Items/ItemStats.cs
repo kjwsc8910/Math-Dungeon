@@ -9,5 +9,6 @@ public class ItemStats
 	public string name;
 	public string attribute;
 	public int strength;
+	public Sprite sprite;
 
 }

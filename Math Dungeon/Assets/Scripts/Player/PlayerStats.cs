@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
+	public float maxHealth;
 	public float health;
-	public int attack;
-	public float speed;
-	public float manna;
 	public int healthPots;
+
+	public float maxManna;
+	public float manna;
 	public int mannaPots;
-	public float score;
+
+	public int attack;
+	public float critRate;
+	public float critDamage;
+
+	public int level;
+	public float exp;
+
+	public float gold;
 
 	private void Start()
 	{
@@ -20,8 +28,8 @@ public class PlayerStats : MonoBehaviour
 
 	private void Update()
 	{
-		if (health > 100) health = 100;
-		if (manna > 75) manna = 75;
+		if (health > maxHealth) health = maxHealth;
+		if (manna > maxManna) manna = maxManna;
 		if (health <= 0) Debug.Log("Dead!");
 	}
 }

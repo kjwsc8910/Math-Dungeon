@@ -40,9 +40,6 @@ public class Monster : MonoBehaviour
 		monster = this;
 
 		subject.sprite = stats.sprite;
-
-	
-
 		subjectAnimator.SetBool("IsOpen", true);
 		dim.SetBool("Dim", true);
 
@@ -81,7 +78,8 @@ public class Monster : MonoBehaviour
 
 	public void MonsterKilled()
 	{
-		playerStats.score += 10f * difficulty.multiplyer;
+		playerStats.gold += stats.goldValue * difficulty.multiplyer;
+		playerStats.exp += stats.expValue;
 		dialogue2.TriggerDialogue();
 		subjectAnimator.SetBool("IsOpen", false);
 		subjectScript.Deactivate();

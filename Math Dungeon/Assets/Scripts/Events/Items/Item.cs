@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Item : MonoBehaviour
 	private PlayerController playerController;
 	private PlayerStats playerStats;
 	private Animator dim;
+	private Animator subjectAnim;
+	private Image subjectImage;
 
 	private bool started = false;
 	private bool restarted = false;
@@ -23,13 +26,18 @@ public class Item : MonoBehaviour
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		dim = GameObject.FindGameObjectWithTag("DimUI").GetComponent<Animator>();
+		subjectAnim = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Animator>();
+		subjectImage = GameObject.FindGameObjectWithTag("SubjectUI").GetComponent<Image>();
 
 		dim.SetBool("Dim", true);
+		subjectAnim.SetBool("Center", true);
+		subjectImage.sprite = itemStats.sprite;
 		Invoke("StartEvent", 0.1f);
 	}
 
 	private void StartEvent()
 	{
+		subjectAnim.SetBool("IsOpen", true);
 		dialogue.TriggerDialogue();
 		started = true;
 		restarted = false;
@@ -46,6 +54,8 @@ public class Item : MonoBehaviour
 		if (restarted == true && dialogueMannager.dialogueOpen == false)
 		{
 			dim.SetBool("Dim", false);
+			subjectAnim.SetBool("IsOpen", false);
+			subjectAnim.SetBool("Center", false);
 			playerController.canMove = true;
 			Destroy(gameObject);
 		}

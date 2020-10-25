@@ -7,9 +7,16 @@ public class MonsterStats
 {
 
 	public string name;
-	public float health;
-	public int attack;
-	public float speed;
 	public Sprite sprite;
+
+	public float maxHealth;
+	public float health;
+
+	public int attack;
+	public float critRate;
+	public float critDamage;
+
+	public float expValue;
+	public float goldValue;
 
 }
