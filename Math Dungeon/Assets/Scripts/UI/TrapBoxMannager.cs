@@ -12,6 +12,7 @@ public class TrapBoxMannager : MonoBehaviour
 
 	private string attribute;
 	private int strength;
+	private float expValue;
 
 	public TextMeshProUGUI question;
 	public TextMeshProUGUI optionOne;
@@ -20,6 +21,8 @@ public class TrapBoxMannager : MonoBehaviour
 	public TextMeshProUGUI optionFour;
 
 	public Slider timerSlider;
+
+	private AudioMannager audioMannager;
 
 	private int correctAns;
 	private int random;
@@ -36,6 +39,7 @@ public class TrapBoxMannager : MonoBehaviour
 		playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 		playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
 		difficulty = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DifficultyMannager>();
+		audioMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<AudioMannager>();
 		isTrapBoxOpen = false;
 		time = 0f;
 		timeOut = false;
@@ -56,11 +60,12 @@ public class TrapBoxMannager : MonoBehaviour
 		}
 	}
 
-	public void StartTrap(string _question, float _ans, string _attribute, int _strength)
+	public void StartTrap(string _question, float _ans, string _attribute, int _strength, float _expValue)
 	{
 
 		attribute = _attribute;
 		strength = _strength;
+		expValue = _expValue;
 		time = 0f;
 		timeOut = false;
 
@@ -93,8 +98,10 @@ public class TrapBoxMannager : MonoBehaviour
 	{
 		animator.SetBool("IsOpen", false);
 		isTrapBoxOpen = false;
+		playerStats.exp += expValue;
 		playerController.canMove = true;
 		Debug.Log("Correct");
+		audioMannager.Play("Select");
 	}
 
 	private void Incorrect()
@@ -104,6 +111,7 @@ public class TrapBoxMannager : MonoBehaviour
 		playerController.canMove = true;
 		if (attribute == "Health") playerStats.health -= strength;
 		Debug.Log("Wrong");
+		audioMannager.Play("Hit");
 	}
 
 	public void SelectOne()

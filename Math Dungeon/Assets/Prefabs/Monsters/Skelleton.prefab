@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6785299704466397263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6785299704466397266}
+  - component: {fileID: 6785299704466397264}
+  - component: {fileID: 6785299704466397265}
+  - component: {fileID: 2076109012574065668}
+  m_Layer: 0
+  m_Name: Skelleton
+  m_TagString: Event
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6785299704466397266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785299704466397263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6785299704466397264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785299704466397263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7356f11df8ef0cd46b2818bf009b3f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    name: Skelleton
+    sprite: {fileID: 21300000, guid: d415aa50acdba854b96dec23c83a239f, type: 3}
+    maxHealth: 12
+    health: 12
+    attack: 20
+    critRate: 25
+    critDamage: 40
+    expValue: 125
+    goldValue: 25
+  dialogue: {fileID: 6785299704466397265}
+  dialogue2: {fileID: 2076109012574065668}
+  playerStats: {fileID: 0}
+  subject: {fileID: 0}
+  monster: {fileID: 0}
+  subjectAnimator: {fileID: 0}
+--- !u!114 &6785299704466397265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785299704466397263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Skelleton
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
+    sentences:
+    - You made a great mistake entering these dungeons...
+    - Prepair to meet your demise!
+--- !u!114 &2076109012574065668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785299704466397263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc9b7d6b06cb4f488555c6823e82a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Skelleton
+    needChoice: 0
+    choiceOneName: 
+    choiceTwoName: 
+    sentences:
+    - This isnt how it was supposed to go!

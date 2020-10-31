@@ -213,3 +213,7 @@ MonoBehaviour:
   level: 0
   exp: 0
   gold: 0
+  inBoss: 0
+  deadScreen: {fileID: 0}
+  levelText: {fileID: 0}
+  goldText: {fileID: 0}

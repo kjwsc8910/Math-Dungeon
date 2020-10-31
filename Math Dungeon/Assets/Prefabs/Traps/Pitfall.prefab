@@ -48,6 +48,7 @@ MonoBehaviour:
     name: Pitfall
     attribute: Health
     strength: 10
+    expValue: 50
     sprite: {fileID: 21300000, guid: 7851a7e6912ac77479f8535f1d0911fb, type: 3}
   dialogue: {fileID: -6844210083472201635}
 --- !u!114 &-6844210083472201635

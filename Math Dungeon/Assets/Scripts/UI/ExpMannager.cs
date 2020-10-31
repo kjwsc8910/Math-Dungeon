@@ -24,6 +24,8 @@ public class ExpMannager : MonoBehaviour
     public TextMeshProUGUI critRate;
     public TextMeshProUGUI critDamage;
 
+    private AudioMannager audioMannager;
+
     public float maxExp;
     private bool levelUp;
     private int statUps;
@@ -36,6 +38,7 @@ public class ExpMannager : MonoBehaviour
         dialogueMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<DialogueMannager>();
         trapBoxMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<TrapBoxMannager>();
         levelUpAnim = GameObject.FindGameObjectWithTag("LevelUpUI").GetComponent<Animator>();
+        audioMannager = GameObject.FindGameObjectWithTag("GameMannager").GetComponent<AudioMannager>();
 
 
         levelUpAnim.SetBool("IsOpen", false);
@@ -51,8 +54,8 @@ public class ExpMannager : MonoBehaviour
             playerStats.level += 1;
             statUps += 1;
             levelUp = true;
-
             maxExp *= 1.2f;
+            audioMannager.Play("LevelUP");
 		}
 
         exp.maxValue = maxExp;
@@ -84,17 +87,17 @@ public class ExpMannager : MonoBehaviour
 
         if (_stat == "maxHealth")
         {
-            playerStats.maxHealth += 5;
-            playerStats.health += 5;
+            playerStats.maxHealth += 10;
+            playerStats.health += 10;
         }
         if (_stat == "maxManna")
         {
-            playerStats.maxManna += 5;
-            playerStats.manna += 5;
+            playerStats.maxManna += 15;
+            playerStats.manna += 15;
         }
         if (_stat == "attack") playerStats.attack += 2;
-        if (_stat == "critRate") playerStats.critRate += 2.5f;
-        if (_stat == "critDamage") playerStats.critDamage += 5f;
+        if (_stat == "critRate") playerStats.critRate += 5f;
+        if (_stat == "critDamage") playerStats.critDamage += 10f;
 
         statUps -= 1;
 	}

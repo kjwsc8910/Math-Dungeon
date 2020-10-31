@@ -18,6 +18,7 @@ TagManager:
   - SubjectUI
   - DimUI
   - LevelUpUI
+  - GameOverScreen
   layers:
   - Default
   - TransparentFX

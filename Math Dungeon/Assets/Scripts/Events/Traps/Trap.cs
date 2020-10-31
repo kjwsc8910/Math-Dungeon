@@ -53,7 +53,7 @@ public class Trap : MonoBehaviour
 			random = Random.Range(1, 3);
 			if (random == 1) questionMannager.Addition(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
 			if (random == 2) questionMannager.Subtraction(difficulty.questionLength, difficulty.questionMin, difficulty.questionMax, out question, out ans);
-			trapBoxMannager.StartTrap(question, ans, stats.attribute, stats.strength);
+			trapBoxMannager.StartTrap(question, ans, stats.attribute, stats.strength, stats.expValue);
 			dim.SetBool("Dim", false);
 			subjectAnim.SetBool("IsOpen", false);
 			subjectAnim.SetBool("Center", false);

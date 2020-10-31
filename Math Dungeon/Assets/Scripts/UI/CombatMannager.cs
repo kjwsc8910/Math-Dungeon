@@ -18,8 +18,16 @@ public class CombatMannager : MonoBehaviour
 	public TextMeshProUGUI questionText;
 	public InputField questionInput;
 
+	public TextMeshProUGUI combatText;
+	[TextArea(3, 10)]
+	public string[] sentencesGood;
+	[TextArea(3, 10)]
+	public string[] sentencesBad;
+	private string sentence;
+
 	private Monster monster;
 	private float damage;
+	private bool crit;
 
 	public bool combatOpen;
 	private int random;
@@ -68,26 +76,73 @@ public class CombatMannager : MonoBehaviour
 		{		
 			damage = playerStats.attack;
 
+			crit = false;
 			random = Random.Range(0, 101);
-			if (random <= playerStats.critRate) damage *=  1 + playerStats.critDamage / 100;
-
-			Debug.Log(damage);
+			if (random <= playerStats.critRate) { damage *= 1 + playerStats.critDamage / 100; crit = true; }
 
 			monster.stats.health -= damage;
 
-			if (monster.stats.health > 0)
-			{
-				questionUI.gameObject.SetActive(false);
-				playerTurnUI.gameObject.SetActive(true);
-			}
-			else
-			{
-				EndCombat();
-			}
+			CombatTextGood();
 		}
 		else
 		{
-			playerStats.health -= monster.stats.attack;
+
+			damage = monster.stats.attack;
+
+			crit = false;
+			random = Random.Range(0, 101);
+			if (random <= monster.stats.critRate) { damage *= 1 + monster.stats.critDamage / 100; crit = true; }
+
+			playerStats.health -= damage;
+
+			CombatTextBad();
+		}
+	}
+
+	public void CombatTextGood()
+	{
+		sentence = sentencesGood[Random.Range(0, sentencesGood.Length)];
+		sentence += damage;
+		sentence += " Damage!";
+		if (crit == true) sentence += " It was a critical strike!";
+		monster.subjectAnimator.SetTrigger("TakeDamage");
+		combatText.gameObject.SetActive(true);
+		questionUI.SetActive(false);
+		StopAllCoroutines();
+		StartCoroutine(DisplayText(sentence));
+	}
+
+	public void CombatTextBad()
+	{
+		sentence = sentencesBad[Random.Range(0, sentencesBad.Length)];
+		sentence += damage;
+		sentence += " Damage!";
+		if (crit == true) sentence += " It was a critical strike!";
+		combatText.gameObject.SetActive(true);
+		questionUI.SetActive(false);
+		StopAllCoroutines();
+		StartCoroutine(DisplayText(sentence));
+	}
+
+	public void ContinueCombat()
+	{
+		combatText.gameObject.SetActive(false);
+		questionUI.SetActive(false);
+		playerTurnUI.SetActive(true);
+
+		if (monster.stats.health <= 0)
+		{
+			EndCombat();
+		}
+	}
+
+	IEnumerator DisplayText (string sentence)
+	{
+		combatText.text = "";
+		foreach (char letter in sentence.ToCharArray())
+		{
+			combatText.text += letter;
+			yield return null;
 		}
 	}
 
@@ -108,6 +163,8 @@ public class CombatMannager : MonoBehaviour
 	public void EndCombat()
 	{
 		animator.SetBool("IsOpen", false);
+
+		monster.subjectAnimator.ResetTrigger("TakeDamage");
 
 		combatOpen = false;
 	}

@@ -12,14 +12,23 @@ public class Monster : MonoBehaviour
 	private DialogueMannager dialogueMannager;
 	private PlayerController playerController;
 	private CombatMannager combatMannager;
+
+	[HideInInspector]
 	public PlayerStats playerStats;
+
 	private DifficultyMannager difficulty;
+
+	[HideInInspector]
 	public Image subject;
 
 	private SubjectMannager subjectScript;
 
+	[HideInInspector]
 	public Monster monster;
-	private Animator subjectAnimator;
+
+	[HideInInspector]
+	public Animator subjectAnimator;
+
 	private Animator dim;
 
 	private bool started = false;
@@ -62,7 +71,7 @@ public class Monster : MonoBehaviour
 		}
 		if (stats.health <= 0 && dead == false) MonsterKilled();
 
-		if (dead == true && dialogueMannager.dialogueOpen == false)
+		if (dead == true && dialogueMannager.dialogueOpen == false && combatMannager.combatOpen == false)
 		{
 			dim.SetBool("Dim", false);
 			playerController.canMove = true;

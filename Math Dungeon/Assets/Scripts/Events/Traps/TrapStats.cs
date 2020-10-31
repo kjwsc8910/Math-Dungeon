@@ -9,6 +9,7 @@ public class TrapStats
 	public string name;
 	public string attribute;
 	public int strength;
+	public float expValue;
 	public Sprite sprite;
 
 }
