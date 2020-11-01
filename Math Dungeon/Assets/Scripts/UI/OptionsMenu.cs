@@ -13,9 +13,12 @@ public class OptionsMenu : MonoBehaviour
     private AudioMannager audioMannager;
 
 
-    void Start()
+    void Awake()
     {
         audioMannager = Camera.main.gameObject.GetComponent<AudioMannager>();
+
+        sfxVolume.value = PlayerPrefs.GetFloat("sfxVolume");
+        musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
     }
 
     public void ChangeVolume()

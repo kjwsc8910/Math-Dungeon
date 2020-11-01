@@ -25,6 +25,8 @@ public class CombatMannager : MonoBehaviour
 	public string[] sentencesBad;
 	private string sentence;
 
+	public Animator playerSubjectAnim;
+
 	private Monster monster;
 	private float damage;
 	private bool crit;
@@ -53,6 +55,7 @@ public class CombatMannager : MonoBehaviour
 		playerTurnUI.gameObject.SetActive(true);
 
 		animator.SetBool("IsOpen", true);
+		playerSubjectAnim.SetBool("IsOpen", true);
 
 		combatOpen = true;
 	}
@@ -94,6 +97,7 @@ public class CombatMannager : MonoBehaviour
 			if (random <= monster.stats.critRate) { damage *= 1 + monster.stats.critDamage / 100; crit = true; }
 
 			playerStats.health -= damage;
+			playerSubjectAnim.SetTrigger("Hit");
 
 			CombatTextBad();
 		}
@@ -165,6 +169,9 @@ public class CombatMannager : MonoBehaviour
 		animator.SetBool("IsOpen", false);
 
 		monster.subjectAnimator.ResetTrigger("TakeDamage");
+
+		playerSubjectAnim.ResetTrigger("Hit");
+		playerSubjectAnim.SetBool("IsOpen", false);
 
 		combatOpen = false;
 	}

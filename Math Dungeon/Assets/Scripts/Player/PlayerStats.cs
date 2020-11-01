@@ -33,6 +33,7 @@ public class PlayerStats : MonoBehaviour
 	public MusicPlayer deathScreenMusic;
 	private AudioMannager mainMusic;
 
+	public Animator playerSubjectAnim;
 	public GameObject deadScreen;
 	public TextMeshProUGUI levelText;
 	public TextMeshProUGUI goldText;
@@ -68,6 +69,8 @@ public class PlayerStats : MonoBehaviour
 
 		if (dead == true) return;
 		dead = true;
+		playerSubjectAnim.ResetTrigger("hit");
+		playerSubjectAnim.SetBool("IsOpen", false);
 		mainMusic.StopAllAudio();
 	}
 }

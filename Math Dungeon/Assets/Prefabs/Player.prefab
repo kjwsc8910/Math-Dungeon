@@ -214,6 +214,8 @@ MonoBehaviour:
   exp: 0
   gold: 0
   inBoss: 0
+  deathScreenMusic: {fileID: 0}
+  playerSubjectAnim: {fileID: 0}
   deadScreen: {fileID: 0}
   levelText: {fileID: 0}
   goldText: {fileID: 0}
