@@ -12,6 +12,8 @@ public class OptionsMenu : MonoBehaviour
     private AudioSource[] allAudioSources;
     private AudioMannager audioMannager;
 
+    private bool init = false;
+
 
     void Awake()
     {
@@ -19,11 +21,16 @@ public class OptionsMenu : MonoBehaviour
 
         sfxVolume.value = PlayerPrefs.GetFloat("sfxVolume");
         musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
+
+        init = true;
     }
 
     public void ChangeVolume()
 	{
-        PlayerPrefs.SetFloat("sfxVolume", sfxVolume.value);
+
+		if (init == false) return;
+
+		PlayerPrefs.SetFloat("sfxVolume", sfxVolume.value);
         PlayerPrefs.SetFloat("musicVolume", musicVolume.value);
 
         allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
@@ -42,7 +49,9 @@ public class OptionsMenu : MonoBehaviour
 
     void Update()
     {
-        sfxVolume.value = PlayerPrefs.GetFloat("sfxVolume");
+
+		if (init == false) return;
+		sfxVolume.value = PlayerPrefs.GetFloat("sfxVolume");
         musicVolume.value = PlayerPrefs.GetFloat("musicVolume");
     }
 }
