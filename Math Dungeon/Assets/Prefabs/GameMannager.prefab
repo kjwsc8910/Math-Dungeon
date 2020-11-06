@@ -124,6 +124,7 @@ MonoBehaviour:
   - {fileID: 7305737988764895359, guid: a213378f292da83439fdb2a62ebef954, type: 3}
   bossArray:
   - {fileID: 5926447008972091688, guid: 6ff500c98ae618f47b306d8b14b584ee, type: 3}
+  - {fileID: 1576841529897392305, guid: 8d1315af59679544982701dbbe05352f, type: 3}
 --- !u!114 &8339247467704635044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +317,10 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: IAmIron
     clip: {fileID: 8300000, guid: 38b330727cdf8e04caf7e44a96dbd036, type: 3}
+    loop: 0
+    source: {fileID: 0}
+  - name: TossACoin
+    clip: {fileID: 8300000, guid: 46fa9a2e703a0c14199f6629f9955fab, type: 3}
     loop: 0
     source: {fileID: 0}
   musicList: []
